@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Site
 
-## Getting Started
+A static portfolio built with **Next.js 16** (static export) + **Tailwind CSS v4**, deployed free on **GitHub Pages**.
 
-First, run the development server:
+## Editing content
+
+All content lives in plain data files — no need to touch the components:
+
+- `src/data/site.ts` — your name, role, tagline, and social/resume links.
+- `src/data/projects.ts` — one entry per deployed project (title, description, live URL, repo, tech stack, and resume-matching `metrics`).
+
+Optional assets to drop in `public/`:
+
+- `public/resume.pdf` — enables the "Resume" link.
+- A screenshot per project (e.g. `public/projects/myapp.png`), then set `image` on that project.
+
+## Develop locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build    # produces the static site in ./out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy to GitHub Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This site is configured for a **root** deployment (no `basePath`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a GitHub repo named **`<your-username>.github.io`** (this exact name is required for root hosting; only one per account).
+2. Push this project to its `main` branch.
+3. In the repo: **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+4. Every push to `main` runs `.github/workflows/deploy.yml`, which builds and publishes automatically.
 
-## Learn More
+Your site goes live at `https://<your-username>.github.io`.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Using a normal repo instead (e.g. `username.github.io/portfolio-site`)? Add
+> `basePath: "/portfolio-site"` to `next.config.ts` so CSS and images resolve correctly.
