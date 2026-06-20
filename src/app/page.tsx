@@ -1,6 +1,8 @@
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
+import Carousel from "@/components/Carousel";
 import { projects } from "@/data/projects";
+import { gallery } from "@/data/gallery";
 import { site } from "@/data/site";
 
 export default function Home() {
@@ -89,6 +91,18 @@ export default function Home() {
         )}
       </header>
 
+      {/* About */}
+      <section className="mt-16">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
+          About
+        </h2>
+        <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-black/70 dark:text-white/70">
+          {site.about.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
       {/* Projects */}
       <section className="mt-16">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
@@ -100,6 +114,18 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Gallery */}
+      {gallery.length > 0 && (
+        <section className="mt-16">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-black/50 dark:text-white/50">
+            Gallery
+          </h2>
+          <div className="mt-6">
+            <Carousel items={gallery} />
+          </div>
+        </section>
+      )}
     </main>
   );
 }

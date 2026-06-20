@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 const ArrowIcon = () => (
@@ -19,19 +18,6 @@ const ArrowIcon = () => (
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white/50 shadow-sm transition hover:shadow-md dark:border-white/10 dark:bg-white/5">
-      {/* Screenshot, or a gradient placeholder when no image is provided */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-        {project.image && (
-          <Image
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition duration-300 group-hover:scale-[1.03]"
-          />
-        )}
-      </div>
-
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div>
           <h3 className="text-lg font-semibold">{project.title}</h3>

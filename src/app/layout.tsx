@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <footer className="border-t border-black/10 py-8 text-center text-sm text-black/50 dark:border-white/10 dark:text-white/50">
-          © {new Date().getFullYear()} {site.name}. Built with Next.js.
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
         </footer>
       </body>
     </html>
